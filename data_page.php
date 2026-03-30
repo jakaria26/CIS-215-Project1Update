@@ -4,12 +4,14 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <title>Survey Data</title>
+        <link rel="stylesheet" href="style.css"/>
     </head>
     <body>
 <header>
             <h1>Student Survey</h1>
             <p><a href="summary.php"> summary of our survey data</a></p>
             <p><a href="webform.php">Return to Form.</a></p>
+            
 </header>
 <main>
 <?php
