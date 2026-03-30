@@ -144,38 +144,31 @@ function bad_submission(){
 
 function main(){
 
-    $user_password = $_POST["pw"];
-
-    if (password_checker($user_password)){
-
-        if (valEmail()){
-
-            if (age_checker()){
-
-                if (gender_checker()){
-
-                    if (major_checker()){
-
-                        if (credit_hours_checker()){
-                            good_submission();
+$user_password = $_POST["pw"];
+if (password_checker($user_password)){
+if (valEmail()){
+if (age_checker()){
+if (gender_checker()){
+if (major_checker()){
+if (credit_hours_checker()){
+    good_submission();
                         }
-                        else{
-                            bad_submission();
+else{
+bad_submission();
                         }
 
                     }
-                    else{
-                        bad_submission();
+else{
+bad_submission();
                     }
 
-                }
                 else{
-                    bad_submission();
-                }
+    bad_submission();
+ }
 
             }
-            else{
-                bad_submission();
+else{
+ bad_submission();
             }
 
         }
