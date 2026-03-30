@@ -135,9 +135,37 @@ if ($credit_hours > 30){
 return True;
 }
 
+/*
+Tested Inputs:
+*/
+function addData(){
+require("dbconfig.php");
+$email = $_POST["email"];
+$age = $_POST["age"];
+$gender = $_POST["gender"];
+$major = $_POST["major"];
+$credit_hours = $_POST["credit_hours"];
+$db = connectDB();
+$select_emails = $db->prepare("SELECT email FROM student_survey");
+$select_emails->execute();
+$select_array = $select_emails->fetchAll();
+$email_array = array();
+foreach ($select_array as $array){
+array_push($email_array, $array["email"]);
+    }
+if (in_array($email, $email_array)){
+$prepared_stat = $db->prepare("DELETE FROM student_survey WHERE email=?");
+$prepared_stat->execute(array($email));
+    }
+$prepared_stat = $db->prepare("INSERT INTO student_survey (email, age, gender, major, credit_hours) VALUES (?, ?, ?, ?, ?)");
+$prepared_stat->execute(array($email, $age, $gender, $major, $credit_hours));
+}
+
 function good_submission(){
-    print("<p>Thank you Submission!</p>");
-    print("<p>Your form passed validation.</p>");
+print("<p>Thank you Submission!</p>");
+print("<p>Your form passed validation.</p>");
+print("<p><a href='data.php'>Go to Data Page</a></p>");
+print("<p><a href='webform.php'>Return to Web Form</a></p>");
 }
 
 function bad_submission(){
