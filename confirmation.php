@@ -13,7 +13,7 @@
 <main>
 <?php
 ini_set('display_errors',1);
-ini_set(display_startup_errors',1);
+ini_set('display_startup_errors',1);
 error_reporting(E_ALL);
 $global_password_hash = '$2y$10$NsymMgnuxhe7gKn4HsHTr.0uZ23Zm2RIUurqMxxpXxQqhIdZvPgJq';
 
